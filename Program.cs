@@ -48,9 +48,8 @@ namespace BridgeBack
                 return Task.CompletedTask;
             if (message.Channel.ToString().Equals("bridge-to-telegram") == false)
                 return Task.CompletedTask;
-            
             string mesg = message.Content.ToString();
-            botClient.SendTextMessageAsync(chatId: "-494441548", text: $@"{message.Author.ToString()} says: {mesg}", disableNotification: true);
+            botClient.SendTextMessageAsync(chatId: "-1001349057811", text: $@"{message.Author.ToString()} says: {mesg}", disableNotification: true);
             return Task.CompletedTask;
         }
         private async void Bot_OnMessage(object sender, MessageEventArgs e)
