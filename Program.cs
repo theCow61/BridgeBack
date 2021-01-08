@@ -50,14 +50,14 @@ namespace BridgeBack
                 return Task.CompletedTask;
             
             string mesg = message.Content.ToString();
-            botClient.SendTextMessageAsync(chatId: "-1001345308114", text: $@"{message.Author.ToString()} says: {mesg}", disableNotification: true);
+            botClient.SendTextMessageAsync(chatId: "-494441548", text: $@"{message.Author.ToString()} says: {mesg}", disableNotification: true);
             return Task.CompletedTask;
         }
         private async void Bot_OnMessage(object sender, MessageEventArgs e)
         {
             if (e.Message.Text != null)
             {
-                if (e.Message.Text.Contains("#bridge") && e.Message.From.IsBot == false)
+                if (e.Message.From.IsBot == false)
                 {
                     try
                     {
