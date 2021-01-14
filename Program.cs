@@ -26,8 +26,8 @@ namespace BridgeBack
             _client = new DiscordSocketClient();
             _client.MessageReceived += CommandHandler;
             _client.Log += Log;
-            string DiscordToken = "Nzk0NzkyNTU4MDcyODIzODI4.X-_-QA.NyOtg7qs138274WagyVKspSLy38";
-            string TelegramToken = "1540037178:AAFpOZap7GNOByt2RSk69YSG9gDRGRA6CSA";
+            string DiscordToken = Vart.DiscToken;
+            string TelegramToken = Vart.TeleToken;
             botClient = new TelegramBotClient(TelegramToken);
             var me = botClient.GetMeAsync().Result;
             botClient.OnMessage += Bot_OnMessage;
@@ -46,10 +46,10 @@ namespace BridgeBack
         {
             if (message.Author.IsBot)
                 return Task.CompletedTask;
-            if (message.Channel.ToString().Equals("bridge-to-telegram") == false)
+            if (message.Channel.ToString().Equals(Vart.DiscBridgeChannel) == false)
                 return Task.CompletedTask;
             string mesg = message.Content.ToString();
-            botClient.SendTextMessageAsync(chatId: "-1001349057811", text: $@"{message.Author.ToString()} says: {mesg}", disableNotification: true);
+            botClient.SendTextMessageAsync(chatId: Vart.TeleChatId, text: $@"{message.Author.ToString()} says: {mesg}", disableNotification: true);
             return Task.CompletedTask;
         }
         private async void Bot_OnMessage(object sender, MessageEventArgs e)
@@ -61,7 +61,7 @@ namespace BridgeBack
                     try
                     {
                         string refinedMessage = e.Message.Text.Replace("#bridge", "");
-                        SocketChannel channel = _client.GetChannel(794799398734266388);
+                        SocketChannel channel = _client.GetChannel(Vart.DiscChannelId);
                         await (channel as IMessageChannel).SendMessageAsync($@"{e.Message.From.FirstName} says: {refinedMessage}");
                     } catch (Exception easports)
                     {

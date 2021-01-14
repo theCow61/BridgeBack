@@ -1,0 +1,16 @@
+{
+    "Settings": {
+        "Discord": {
+            "Token": "Nzk0NzkyNTU4MDcyODIzODI4.X-_-QA.NyOtg7qs138274WagyVKspSLy38",
+            "ChannelId": 794799398734266388,
+            "ChannelBridgeName": "general"
+        },
+        "Telegram": {
+            "Token": "1540037178:AAFpOZap7GNOByt2RSk69YSG9gDRGRA6CSA",
+            "ChatId": "-1001349057811"
+        },
+        "Application": {
+
+        }
+    }
+}
